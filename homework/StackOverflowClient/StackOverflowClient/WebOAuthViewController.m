@@ -90,7 +90,7 @@ typedef enum {
 + (NSString *)accessToken
 {
     NSMutableDictionary *query = [self keychainQuery:@"kAccessTokenID"];
-    //query[(__bridge id)kSecReturnData] = (__bridge id)kCFBooleanTrue;
+    query[(__bridge id)kSecReturnAttributes] = (__bridge id)kCFBooleanTrue;
     query[(__bridge id)kSecMatchLimit] = (__bridge id)kSecMatchLimitOne;
     
     CFDataRef dataRef = nil;
