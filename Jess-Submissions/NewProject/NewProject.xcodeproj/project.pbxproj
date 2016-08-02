@@ -326,6 +326,7 @@
 				D9D488BC1D4FAD1E00626A34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

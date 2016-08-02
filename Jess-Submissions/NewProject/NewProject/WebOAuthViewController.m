@@ -8,9 +8,11 @@
 
 #import "WebOAuthViewController.h"
 #import <WebKit/WebKit.h>
+#import <Security/Security.h>
 
 
-NSString const *kBaseURL = @"httsp://stackexchange.com/oauth/dialog";
+
+NSString const *kBaseURL = @"https://stackexchange.com/oauth/dialog";
 NSString const *kRedirectURI = @"https://stackexchange.com/oauth/login_success";
 NSString const *kClientID = @"7593";
 
@@ -48,18 +50,78 @@ NSString const *kClientID = @"7593";
         NSString *fullTokenParamater = components.firstObject;
         NSString *token = [fullTokenParamater componentsSeparatedByString:@"="].lastObject;
         
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSMutableDictionary *query = [NSMutableDictionary dictionary];
+        query[(__bridge id)kSecClass] = (__bridge id)kSecClassInternetPassword;
+        query[(__bridge id)kSecAttrAccessible] = (__bridge id)kSecAttrAccessibleWhenUnlocked;
         
-        [defaults setObject:token forKey:@"token"];
-        
-        [defaults synchronize];
+        if (SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL) == noErr)
+            {
+                NSLog(@"Token already exists");
+            } else
+            {
+                query[(__bridge id)kSecValueData] = [token dataUsingEncoding:NSUTF8StringEncoding];
+                OSStatus sts = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
+                NSLog(@"Error Code: %d", (int)sts);
+            }
         
         [self dismissViewControllerAnimated:YES completion:nil];
-        
-        
     }
-    
     decisionHandler(WKNavigationActionPolicyAllow);
+    
 }
 
+- (NSString *)getToken {
+    NSMutableDictionary *query = [NSMutableDictionary dictionary];
+    
+    query[(__bridge id)kSecClass] = (__bridge id)kSecClassInternetPassword;
+    query[(__bridge id)kSecAttrAccessible] = (__bridge id)kSecAttrAccessibleWhenUnlocked;
+    
+    //Check if token already exists.
+    query[(__bridge id)kSecReturnData] = (__bridge id)kCFBooleanTrue;
+    query[(__bridge id)kSecReturnAttributes] = (__bridge id)kCFBooleanTrue;
+    
+    CFDictionaryRef result = nil;
+    OSStatus sts = SecItemCopyMatching((__bridge CFDictionaryRef)query, (CFTypeRef *)&result);
+    
+    NSLog(@"Error Code: %d", (int)sts);
+    
+    if(sts == noErr)
+    {
+        NSDictionary *resultDict = (__bridge_transfer NSDictionary *)result;
+        NSData *tkn = resultDict[(__bridge id)kSecValueData];
+        NSString *token = [[NSString alloc] initWithData:tkn encoding:NSUTF8StringEncoding];
+        return token;
+        
+    } else {
+        NSDictionary *userInfo = @{@"Description" : @"Access Token does not exist."};
+        NSError *myError = [NSError errorWithDomain:@"MyDomain" code:101 userInfo:userInfo];
+        NSLog(@"%@", [myError.userInfo objectForKey:@"Description"]);
+        
+        return nil;
+    }
+    
+}
+
+
+        
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
