@@ -62,6 +62,7 @@ CGFloat const kBurgerButtonHeight = 30.0;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
     self.token = [WebOAuthViewController accessToken];
+    NSLog(@"Log: %@", self.token);
     if(!self.token) {
         WebOAuthViewController *webVC = [[WebOAuthViewController alloc]init];
         [self presentViewController:webVC animated:YES completion:nil];

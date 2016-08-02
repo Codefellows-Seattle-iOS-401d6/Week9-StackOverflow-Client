@@ -7,8 +7,16 @@
 //
 
 #import "QuestionSearchViewController.h"
+#import "StackOverFlowService.h"
+#import "WebOAuthViewController.h"
 
 @interface QuestionSearchViewController ()
+
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property(strong, nonatomic)NSArray *searchedQuestions;
+@property (weak, nonatomic) IBOutlet UITextField *searchTextField;
+- (IBAction)searchButtonSelected:(UIButton *)sender;
 
 @end
 
@@ -16,7 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [StackOverFlowService questionsForSearchTerm:@"iOS" completionHandler:^(NSArray *results, NSError *error) {
+        //
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +34,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+//- (void)viewDidAppear:(BOOL)animated {
+//    [super viewDidAppear:YES];
+//    NSString *token = [WebOAuthViewController accessToken];
+//    
+////   <#^(NSArray *results, NSError *error)completion#> if (token) {
+////        [StackOverFlowService questionsForSearchTerm:<#(NSString *)#> completionHandler:]
+////    }
+//}
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+- (IBAction)searchButtonSelected:(UIButton *)sender {
+    NSString *searchText = self.searchTextField.text;
+    self.searchTextField.text = @"";
+    NSString *token = [WebOAuthViewController accessToken];
+    if (token) {
+        [StackOverFlowService questionsForSearchTerm:searchText completionHandler:^(NSArray *results, NSError *error) {
+            if (error) {
+                NSLog(@"%@", error.localizedDescription);
+                return;
+            }
+            self.searchedQuestions = results;
+            [self.tableView reloadData];
+        }];
+    }
 }
-*/
-
 @end

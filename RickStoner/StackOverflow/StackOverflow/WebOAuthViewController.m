@@ -13,6 +13,7 @@
 NSString const *kBaseURL = @"https://stackexchange.com/oauth/dialog";
 NSString const *kRedirectURI = @"https://stackexchange.com/oauth/login_success";
 NSString const *kClientID = @"7600";
+NSString const *kAccessToken = @"kAccessTokenTwo";
 
 @interface WebOAuthViewController () <WKNavigationDelegate>
 
@@ -44,8 +45,10 @@ NSString const *kClientID = @"7600";
         NSString *fullTokenParameter = components.firstObject;
         NSString *token = [fullTokenParameter componentsSeparatedByString:@"="].lastObject;
         
-        NSMutableDictionary *query = [WebOAuthViewController keyChainQuery:@"kAccessTokenTester"];
+        NSLog(@"Token %@", token);
+        NSMutableDictionary *query = [WebOAuthViewController keyChainQuery:@"AccessToken"];
         [self saveToKeyChain:query token:token];
+        [self dismissViewControllerAnimated:YES completion:nil];
         
     }
     decisionHandler(WKNavigationActionPolicyAllow);
@@ -62,30 +65,46 @@ NSString const *kClientID = @"7600";
 }
 
 - (void)saveToKeyChain:(NSMutableDictionary *)query token:(NSString *)token {
+ 
     NSData *tokenData = [token dataUsingEncoding:NSUTF8StringEncoding];
     [query setObject:tokenData forKey:(__bridge id)kSecValueData];
     SecItemDelete((__bridge CFDictionaryRef)query);
-    SecItemDelete((CFDictionaryRef)query);
-    OSStatus status = SecItemAdd((CFDictionaryRef)query, NULL);
+    OSStatus status = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
     NSLog(@"Status: %d", status);
 }
 
 + (NSString *)accessToken{
-    NSMutableDictionary *searchDictionary = [self keyChainQuery:@"kAccessTokenTester"];
+    NSMutableDictionary *searchDictionary = [self keyChainQuery:@"AccessToken"];
+    CFDataRef result = nil;
     
-    CFDataRef dataRef = nil;
-    
-    OSStatus error = SecItemCopyMatching((__bridge CFDictionaryRef)searchDictionary, (CFTypeRef *)&dataRef);
+    [searchDictionary setObject:(__bridge id)kCFBooleanTrue forKey:(__bridge id)kSecReturnAttributes];
+    [searchDictionary setObject:(__bridge id)kSecMatchLimitOne forKey:(__bridge id) kSecMatchLimit];
+    OSStatus error = SecItemCopyMatching((__bridge CFDictionaryRef)searchDictionary, (CFTypeRef *)&result);
     
     if (error == noErr) {
-        NSDictionary *resultDict = (__bridge_transfer NSDictionary *)dataRef;
+        NSDictionary *resultDict = (__bridge_transfer NSDictionary *)result;
         NSData *tokenData = resultDict[(__bridge id)kSecValueData];
-        NSString *token = [[NSString alloc] initWithData:tokenData encoding:NSUTF8StringEncoding];
+        NSString *token = [[NSString alloc]initWithData:tokenData encoding:NSUTF8StringEncoding];
+        token = @"ReyjqBMg8tR57ZSxwpB24w))";
         return token;
     } else {
         NSLog(@"No token");
         return nil;
     }
+}
+
+-(void)resetKeychain {
+    [self deleteAllKeysForSecClass:kSecClassGenericPassword];
+    [self deleteAllKeysForSecClass:kSecClassInternetPassword];
+    [self deleteAllKeysForSecClass:kSecClassCertificate];
+    [self deleteAllKeysForSecClass:kSecClassKey];
+    [self deleteAllKeysForSecClass:kSecClassIdentity];
+}
+
+-(void)deleteAllKeysForSecClass:(CFTypeRef)secClass {
+    NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+    [dict setObject:(__bridge id)secClass forKey:(__bridge id)kSecClass];
+    SecItemDelete((__bridge CFDictionaryRef) dict);
 }
 
 
