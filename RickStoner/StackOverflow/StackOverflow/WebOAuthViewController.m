@@ -48,7 +48,6 @@ NSString const *kClientID = @"7600";
         [self saveToKeyChain:query token:token];
         
     }
-    
     decisionHandler(WKNavigationActionPolicyAllow);
 
 }
@@ -73,7 +72,6 @@ NSString const *kClientID = @"7600";
 
 + (NSString *)accessToken{
     NSMutableDictionary *searchDictionary = [self keyChainQuery:@"kAccessTokenTester"];
-    
     
     CFDataRef dataRef = nil;
     
