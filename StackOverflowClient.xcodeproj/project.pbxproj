@@ -10,6 +10,12 @@
 		8BD96FA81D4FBA1300826657 /* QuestionSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD96FA71D4FBA1300826657 /* QuestionSearchViewController.m */; };
 		8BD96FAB1D4FBA2400826657 /* UserQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD96FAA1D4FBA2400826657 /* UserQuestionsViewController.m */; };
 		8BD96FAE1D4FD35B00826657 /* WebOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD96FAD1D4FD35B00826657 /* WebOAuthViewController.m */; };
+		8BD96FB01D51049A00826657 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BD96FAF1D51049A00826657 /* AFNetworking.framework */; };
+		8BD96FB21D51054C00826657 /* AFNetworking.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 8BD96FAF1D51049A00826657 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8BD96FB51D510B4500826657 /* StackOverflowService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD96FB41D510B4500826657 /* StackOverflowService.m */; };
+		8BD96FB81D511AA100826657 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD96FB71D511AA100826657 /* Question.m */; };
+		8BD96FBB1D511AE100826657 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD96FBA1D511AE100826657 /* User.m */; };
+		8BD96FBE1D511EB300826657 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BD96FBD1D511EB300826657 /* JSONParser.m */; };
 		8BF65B351D4FAD3000E25CD6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF65B341D4FAD3000E25CD6 /* main.m */; };
 		8BF65B381D4FAD3000E25CD6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF65B371D4FAD3000E25CD6 /* AppDelegate.m */; };
 		8BF65B3B1D4FAD3000E25CD6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF65B3A1D4FAD3000E25CD6 /* ViewController.m */; };
@@ -19,6 +25,20 @@
 		8BF65B4C1D4FAD6700E25CD6 /* BurgerMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF65B4B1D4FAD6700E25CD6 /* BurgerMenuViewController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8BD96FB11D51052300826657 /* Copy Files */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8BD96FB21D51054C00826657 /* AFNetworking.framework in Copy Files */,
+			);
+			name = "Copy Files";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		8BD96FA61D4FBA1300826657 /* QuestionSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSearchViewController.h; sourceTree = "<group>"; };
 		8BD96FA71D4FBA1300826657 /* QuestionSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSearchViewController.m; sourceTree = "<group>"; };
@@ -26,6 +46,15 @@
 		8BD96FAA1D4FBA2400826657 /* UserQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserQuestionsViewController.m; sourceTree = "<group>"; };
 		8BD96FAC1D4FD35B00826657 /* WebOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebOAuthViewController.h; sourceTree = "<group>"; };
 		8BD96FAD1D4FD35B00826657 /* WebOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebOAuthViewController.m; sourceTree = "<group>"; };
+		8BD96FAF1D51049A00826657 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
+		8BD96FB31D510B4500826657 /* StackOverflowService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackOverflowService.h; sourceTree = "<group>"; };
+		8BD96FB41D510B4500826657 /* StackOverflowService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackOverflowService.m; sourceTree = "<group>"; };
+		8BD96FB61D511AA100826657 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		8BD96FB71D511AA100826657 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		8BD96FB91D511AE100826657 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		8BD96FBA1D511AE100826657 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		8BD96FBC1D511EB300826657 /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
+		8BD96FBD1D511EB300826657 /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONParser.m; sourceTree = "<group>"; };
 		8BF65B301D4FAD3000E25CD6 /* StackOverflowClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackOverflowClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF65B341D4FAD3000E25CD6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BF65B361D4FAD3000E25CD6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -45,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BD96FB01D51049A00826657 /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +84,7 @@
 		8BF65B271D4FAD3000E25CD6 = {
 			isa = PBXGroup;
 			children = (
+				8BD96FAF1D51049A00826657 /* AFNetworking.framework */,
 				8BF65B321D4FAD3000E25CD6 /* StackOverflowClient */,
 				8BF65B311D4FAD3000E25CD6 /* Products */,
 			);
@@ -85,6 +116,8 @@
 				8BF65B371D4FAD3000E25CD6 /* AppDelegate.m */,
 				8BF65B441D4FAD3000E25CD6 /* Info.plist */,
 				8BF65B341D4FAD3000E25CD6 /* main.m */,
+				8BD96FBC1D511EB300826657 /* JSONParser.h */,
+				8BD96FBD1D511EB300826657 /* JSONParser.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -102,6 +135,12 @@
 		8BF65B4F1D4FAF1D00E25CD6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8BD96FB31D510B4500826657 /* StackOverflowService.h */,
+				8BD96FB41D510B4500826657 /* StackOverflowService.m */,
+				8BD96FB61D511AA100826657 /* Question.h */,
+				8BD96FB71D511AA100826657 /* Question.m */,
+				8BD96FB91D511AE100826657 /* User.h */,
+				8BD96FBA1D511AE100826657 /* User.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -133,6 +172,7 @@
 				8BF65B2C1D4FAD3000E25CD6 /* Sources */,
 				8BF65B2D1D4FAD3000E25CD6 /* Frameworks */,
 				8BF65B2E1D4FAD3000E25CD6 /* Resources */,
+				8BD96FB11D51052300826657 /* Copy Files */,
 			);
 			buildRules = (
 			);
@@ -193,11 +233,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BD96FBB1D511AE100826657 /* User.m in Sources */,
 				8BD96FAE1D4FD35B00826657 /* WebOAuthViewController.m in Sources */,
 				8BF65B4C1D4FAD6700E25CD6 /* BurgerMenuViewController.m in Sources */,
 				8BD96FAB1D4FBA2400826657 /* UserQuestionsViewController.m in Sources */,
 				8BF65B3B1D4FAD3000E25CD6 /* ViewController.m in Sources */,
+				8BD96FB51D510B4500826657 /* StackOverflowService.m in Sources */,
+				8BD96FBE1D511EB300826657 /* JSONParser.m in Sources */,
 				8BF65B381D4FAD3000E25CD6 /* AppDelegate.m in Sources */,
+				8BD96FB81D511AA100826657 /* Question.m in Sources */,
 				8BD96FA81D4FBA1300826657 /* QuestionSearchViewController.m in Sources */,
 				8BF65B351D4FAD3000E25CD6 /* main.m in Sources */,
 			);
@@ -313,6 +357,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = StackOverflowClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.seanchampagne.StackOverflowClient;
@@ -324,6 +372,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = StackOverflowClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.seanchampagne.StackOverflowClient;

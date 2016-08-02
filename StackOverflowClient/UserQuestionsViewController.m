@@ -7,8 +7,14 @@
 //
 
 #import "UserQuestionsViewController.h"
+#import "StackOverflowService.h"
+#import "User.h"
 
-@interface UserQuestionsViewController ()
+@interface UserQuestionsViewController () <UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (strong, nonatomic) NSArray *userQuestions;
 
 @end
 
@@ -17,6 +23,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.tableView.dataSource = self;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:@"token"]; //update to keychain
+    
+    if (token)
+    {
+        [StackOverflowService questionsForSearchTerm:@"iOS" completionHandler:^(NSArray *results, NSError *error)
+         {
+             if (error)
+             {
+                 NSLog(@"%@", error.localizedDescription);
+                 return;
+             }
+             self.userQuestions = results;
+             [self.tableView reloadData];
+         }];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +53,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"questionCell" forIndexPath:indexPath];
+    
+    User *userQuestion = self.userQuestions[indexPath.row];
+    cell.textLabel.text = userQuestion.userName;
+    
+    return cell;
 }
-*/
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.userQuestions.count;
+}
 
 @end
