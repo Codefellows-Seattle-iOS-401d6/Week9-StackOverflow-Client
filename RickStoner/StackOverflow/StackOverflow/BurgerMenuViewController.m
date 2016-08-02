@@ -29,6 +29,14 @@ CGFloat const kBurgerButtonHeight = 30.0;
 
 @implementation BurgerMenuViewController
 
+- (void)errorCodeExample {
+    NSString *domain = @"KeyChian";
+    NSInteger code = 666;
+    NSDictionary *userInfo = @{@"Description" : @"Keychain + Objective-c = A twisted form of hell"};
+                               
+    NSError *error = [NSError errorWithDomain:domain code:code userInfo:userInfo];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     QuestionSearchViewController *questionSearchVC = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionSearchVC"];
