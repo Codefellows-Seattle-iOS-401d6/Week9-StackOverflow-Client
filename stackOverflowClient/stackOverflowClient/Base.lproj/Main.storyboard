@@ -92,8 +92,42 @@
                     <view key="view" contentMode="scaleToFill" id="97p-Z5-lXY">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pFr-jU-TNd">
+                                <rect key="frame" x="0.0" y="70" width="600" height="530"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="questionCell" textLabel="W0X-2u-vn1" style="IBUITableViewCellStyleDefault" id="hcD-c2-Hq1">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hcD-c2-Hq1" id="PXR-dB-V7H">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="W0X-2u-vn1">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pFr-jU-TNd" firstAttribute="leading" secondItem="97p-Z5-lXY" secondAttribute="leading" id="CT4-u1-Dwb"/>
+                            <constraint firstItem="pFr-jU-TNd" firstAttribute="top" secondItem="GF7-ff-qEJ" secondAttribute="bottom" constant="50" id="WJc-b3-q0w"/>
+                            <constraint firstAttribute="trailing" secondItem="pFr-jU-TNd" secondAttribute="trailing" id="wfL-dE-jIN"/>
+                            <constraint firstItem="qeq-mW-nZt" firstAttribute="top" secondItem="pFr-jU-TNd" secondAttribute="bottom" id="zNI-RA-mRw"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="pFr-jU-TNd" id="tHZ-Jf-c5b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZ5-IH-oQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
