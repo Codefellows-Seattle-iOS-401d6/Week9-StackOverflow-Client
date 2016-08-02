@@ -117,7 +117,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pFr-jU-TNd" firstAttribute="leading" secondItem="97p-Z5-lXY" secondAttribute="leading" id="CT4-u1-Dwb"/>
                             <constraint firstItem="pFr-jU-TNd" firstAttribute="top" secondItem="GF7-ff-qEJ" secondAttribute="bottom" constant="50" id="WJc-b3-q0w"/>
@@ -144,7 +144,38 @@
                     <view key="view" contentMode="scaleToFill" id="cKL-ez-hrK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WS8-NY-43t">
+                                <rect key="frame" x="0.0" y="70" width="600" height="530"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" textLabel="X9n-sS-gJI" style="IBUITableViewCellStyleDefault" id="AAK-vV-NNR">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AAK-vV-NNR" id="qLR-hV-BQI">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="X9n-sS-gJI">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WS8-NY-43t" firstAttribute="leading" secondItem="cKL-ez-hrK" secondAttribute="leading" id="jPT-xq-tbc"/>
+                            <constraint firstAttribute="trailing" secondItem="WS8-NY-43t" secondAttribute="trailing" id="ql1-q9-cFS"/>
+                            <constraint firstItem="WS8-NY-43t" firstAttribute="top" secondItem="cnF-bv-h0O" secondAttribute="bottom" constant="50" id="swc-Ol-Gfa"/>
+                            <constraint firstItem="YHn-aA-rjE" firstAttribute="top" secondItem="WS8-NY-43t" secondAttribute="bottom" id="tQd-Fc-HOZ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcx-wS-IaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
