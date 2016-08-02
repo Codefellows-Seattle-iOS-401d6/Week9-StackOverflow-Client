@@ -13,6 +13,10 @@
 		04765AD91D4FE72F006F8514 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04765AD71D4FE72F006F8514 /* Main.storyboard */; };
 		04765ADB1D4FE72F006F8514 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04765ADA1D4FE72F006F8514 /* Assets.xcassets */; };
 		04765ADE1D4FE72F006F8514 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04765ADC1D4FE72F006F8514 /* LaunchScreen.storyboard */; };
+		04765AE91D4FEB50006F8514 /* BurgerMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04765AE81D4FEB50006F8514 /* BurgerMenuViewController.m */; };
+		04765AEC1D4FF056006F8514 /* QuestionSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04765AEB1D4FF056006F8514 /* QuestionSearchViewController.m */; };
+		04765AEF1D4FF068006F8514 /* UserQuestionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04765AEE1D4FF068006F8514 /* UserQuestionsViewController.m */; };
+		04765AF21D4FFCCD006F8514 /* WebOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04765AF11D4FFCCD006F8514 /* WebOAuthViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,14 @@
 		04765ADA1D4FE72F006F8514 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04765ADD1D4FE72F006F8514 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04765ADF1D4FE72F006F8514 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04765AE71D4FEB50006F8514 /* BurgerMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BurgerMenuViewController.h; sourceTree = "<group>"; };
+		04765AE81D4FEB50006F8514 /* BurgerMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BurgerMenuViewController.m; sourceTree = "<group>"; };
+		04765AEA1D4FF056006F8514 /* QuestionSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionSearchViewController.h; sourceTree = "<group>"; };
+		04765AEB1D4FF056006F8514 /* QuestionSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionSearchViewController.m; sourceTree = "<group>"; };
+		04765AED1D4FF068006F8514 /* UserQuestionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserQuestionsViewController.h; sourceTree = "<group>"; };
+		04765AEE1D4FF068006F8514 /* UserQuestionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserQuestionsViewController.m; sourceTree = "<group>"; };
+		04765AF01D4FFCCD006F8514 /* WebOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebOAuthViewController.h; sourceTree = "<group>"; };
+		04765AF11D4FFCCD006F8514 /* WebOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebOAuthViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +91,14 @@
 		04765AE51D4FE994006F8514 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				04765AE71D4FEB50006F8514 /* BurgerMenuViewController.h */,
+				04765AE81D4FEB50006F8514 /* BurgerMenuViewController.m */,
+				04765AF01D4FFCCD006F8514 /* WebOAuthViewController.h */,
+				04765AF11D4FFCCD006F8514 /* WebOAuthViewController.m */,
+				04765AEA1D4FF056006F8514 /* QuestionSearchViewController.h */,
+				04765AEB1D4FF056006F8514 /* QuestionSearchViewController.m */,
+				04765AED1D4FF068006F8514 /* UserQuestionsViewController.h */,
+				04765AEE1D4FF068006F8514 /* UserQuestionsViewController.m */,
 				04765AD41D4FE72F006F8514 /* ViewController.h */,
 				04765AD51D4FE72F006F8514 /* ViewController.m */,
 			);
@@ -165,8 +185,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04765AF21D4FFCCD006F8514 /* WebOAuthViewController.m in Sources */,
+				04765AE91D4FEB50006F8514 /* BurgerMenuViewController.m in Sources */,
+				04765AEF1D4FF068006F8514 /* UserQuestionsViewController.m in Sources */,
 				04765AD61D4FE72F006F8514 /* ViewController.m in Sources */,
 				04765AD31D4FE72F006F8514 /* AppDelegate.m in Sources */,
+				04765AEC1D4FF056006F8514 /* QuestionSearchViewController.m in Sources */,
 				04765AD01D4FE72F006F8514 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +342,7 @@
 				04765AE41D4FE72F006F8514 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
