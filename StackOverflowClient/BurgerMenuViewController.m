@@ -54,11 +54,14 @@ CGFloat const kBurgerButtonHeight = 50.0;
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; //checking keychain, not userdefaults
-    self.token = [defaults objectForKey:@"token"];
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; //checking keychain, not userdefaults
+//    self.token = [defaults objectForKey:@"token"];
+    
+    WebOAuthViewController *webVC = [[WebOAuthViewController alloc]init];
+    self.token = [webVC accessToken];
+    NSLog(@"this is token: %@", self.token);
     if (!self.token)
     {
-        WebOAuthViewController *webVC = [[WebOAuthViewController alloc]init];
         [self presentViewController:webVC animated:true completion:nil];
     }
 }
@@ -67,6 +70,7 @@ CGFloat const kBurgerButtonHeight = 50.0;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 -(void)setupBurgerButton
 {
@@ -115,11 +119,11 @@ CGFloat const kBurgerButtonHeight = 50.0;
 
 -(void)setupPanGesture
 {
-    [self.panRecognizer = [UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(setTopViewControllerPanned:)];
+    self.panRecognizer = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(topViewControllerPanned:)];
     [self.topViewController.view addGestureRecognizer:self.panRecognizer];
 }
 
--(void)setTopViewControllerPanned:(UIPanGestureRecognizer *)sender
+-(void)topViewControllerPanned:(UIPanGestureRecognizer *)sender
 {
     CGPoint velocity = [sender velocityInView:self.topViewController.view];
     CGPoint translation = [sender translationInView:self.topViewController.view];
@@ -201,5 +205,6 @@ CGFloat const kBurgerButtonHeight = 50.0;
         }];
     }];
 }
+
 
 @end
