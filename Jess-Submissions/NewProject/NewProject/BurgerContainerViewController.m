@@ -10,7 +10,6 @@
 #import "QuestionSearchViewController.h"
 #import "UserQuestionsViewController.h"
 #import "WebOAuthViewController.h"
-#import "KeychainWrapper.h"
 
 CGFloat const kBurgerOpenScreenDivider = 3.0;
 CGFloat const kBurgerOpenScreenMultiplier = 2.0;
@@ -70,8 +69,10 @@ CGFloat const kBurgerButtonHeight = 50.0;
     [super viewWillAppear:animated];
     
     
-    KeychainWrapper *keychain = [[KeychainWrapper alloc]init];
+//    KeychainWrapper *keychain = [[KeychainWrapper alloc]init];
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+//    NSString *token = [[WebOAuthViewController alloc]init];
     self.token = [keychain myObjectForKey:@"token"];
     
     if (!self.token) {

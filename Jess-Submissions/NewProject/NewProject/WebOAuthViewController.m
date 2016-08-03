@@ -49,19 +49,18 @@ NSString const *kClientID = @"7593";
         
         NSString *fullTokenParamater = components.firstObject;
         NSString *token = [fullTokenParamater componentsSeparatedByString:@"="].lastObject;
+   
+        NSMutableDictionary *keychainItem = [NSMutableDictionary dictionary];
+        keychainItem[(__bridge id)kSecClass] = (__bridge id)kSecClassInternetPassword;
+        keychainItem[(__bridge id)kSecAttrAccessible] = (__bridge id)kSecAttrAccessibleWhenUnlocked;
         
-//        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSMutableDictionary *query = [NSMutableDictionary dictionary];
-        query[(__bridge id)kSecClass] = (__bridge id)kSecClassInternetPassword;
-        query[(__bridge id)kSecAttrAccessible] = (__bridge id)kSecAttrAccessibleWhenUnlocked;
-        
-        if (SecItemCopyMatching((__bridge CFDictionaryRef)query, NULL) == noErr)
+        if (SecItemCopyMatching((__bridge CFDictionaryRef)keychainItem, NULL) == noErr)
             {
                 NSLog(@"Token already exists");
             } else
             {
-                query[(__bridge id)kSecValueData] = [token dataUsingEncoding:NSUTF8StringEncoding];
-                OSStatus sts = SecItemAdd((__bridge CFDictionaryRef)query, NULL);
+                keychainItem[(__bridge id)kSecValueData] = [token dataUsingEncoding:NSUTF8StringEncoding];
+                OSStatus sts = SecItemAdd((__bridge CFDictionaryRef)keychainItem, NULL);
                 NSLog(@"Error Code: %d", (int)sts);
             }
         
@@ -71,7 +70,7 @@ NSString const *kClientID = @"7593";
     
 }
 
-- (NSString *)getToken {
++ (NSString *)getToken {
     NSMutableDictionary *query = [NSMutableDictionary dictionary];
     
     query[(__bridge id)kSecClass] = (__bridge id)kSecClassInternetPassword;

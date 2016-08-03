@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface WebOAuthViewController : UIViewController
-
++ (NSString *)getToken;
 @end
