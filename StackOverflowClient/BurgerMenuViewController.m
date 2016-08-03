@@ -58,7 +58,7 @@ CGFloat const kBurgerButtonHeight = 50.0;
 //    self.token = [defaults objectForKey:@"token"];
     
     WebOAuthViewController *webVC = [[WebOAuthViewController alloc]init];
-    self.token = [webVC accessToken];
+    self.token = [WebOAuthViewController accessToken];
     NSLog(@"this is token: %@", self.token);
     if (!self.token)
     {

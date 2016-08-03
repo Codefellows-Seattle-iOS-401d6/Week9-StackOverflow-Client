@@ -14,4 +14,6 @@ typedef void(^questionFetchCompletion)(NSArray *results, NSError *error);
 
 +(void)questionsForSearchTerm:(NSString *)searchTerm completionHandler:(questionFetchCompletion)completionHandler;
 
++(void)usersForSearchTerm:(NSString *)searchTerm completionHandler:(questionFetchCompletion)completionHandler;
+
 @end

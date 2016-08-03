@@ -9,12 +9,15 @@
 #import "UserQuestionsViewController.h"
 #import "StackOverflowService.h"
 #import "User.h"
+#import "WebOAuthViewController.h"
 
-@interface UserQuestionsViewController () <UITableViewDataSource>
+@interface UserQuestionsViewController () <UITableViewDataSource, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSArray *userQuestions;
+
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -31,21 +34,21 @@
 {
     [super viewDidAppear:animated];
     
-    NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:@"token"]; //update to keychain
-    
-    if (token)
-    {
-        [StackOverflowService questionsForSearchTerm:@"iOS" completionHandler:^(NSArray *results, NSError *error)
-         {
-             if (error)
-             {
-                 NSLog(@"%@", error.localizedDescription);
-                 return;
-             }
-             self.userQuestions = results;
-             [self.tableView reloadData];
-         }];
-    }
+//    NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:@"token"]; //update to keychain
+//    
+//    if (token)
+//    {
+//        [StackOverflowService questionsForSearchTerm:@"iOS" completionHandler:^(NSArray *results, NSError *error)
+//         {
+//             if (error)
+//             {
+//                 NSLog(@"%@", error.localizedDescription);
+//                 return;
+//             }
+//             self.userQuestions = results;
+//             [self.tableView reloadData];
+//         }];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,5 +70,21 @@
 {
     return self.userQuestions.count;
 }
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSString *searchText = self.searchBar.text;
+    
+    [StackOverflowService usersForSearchTerm:searchText completionHandler:^(NSArray *results, NSError *error) {
+        if (error)
+        {
+            NSLog(@"%@", error.localizedDescription);
+            return;
+        }
+        self.userQuestions = results;
+        [self.tableView reloadData];
+    }];
+}
+
 
 @end

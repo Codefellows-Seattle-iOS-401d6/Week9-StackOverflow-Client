@@ -10,6 +10,6 @@
 
 @interface WebOAuthViewController : UIViewController
 
--(NSString *)accessToken;
++(NSString *)accessToken;
 
 @end

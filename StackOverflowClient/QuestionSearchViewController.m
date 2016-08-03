@@ -9,12 +9,15 @@
 #import "QuestionSearchViewController.h"
 #import "StackOverflowService.h"
 #import "Question.h"
+#import "WebOAuthViewController.h"
 
-@interface QuestionSearchViewController () <UITableViewDataSource>
+@interface QuestionSearchViewController () <UITableViewDataSource, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) NSArray *searchedQuestions;
+
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -24,6 +27,7 @@
     [super viewDidLoad];
     
     self.tableView.dataSource = self;
+    self.searchBar.delegate = self;
     
 }
 
@@ -31,7 +35,7 @@
 {
     [super viewDidAppear:animated];
     
-    NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:@"token"]; //update to keychain
+    NSString *token = [WebOAuthViewController accessToken]; //update to keychain
     
     if (token)
     {
@@ -66,6 +70,21 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.searchedQuestions.count;
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    NSString *searchText = self.searchBar.text;
+    
+    [StackOverflowService questionsForSearchTerm:searchText completionHandler:^(NSArray *results, NSError *error) {
+        if (error)
+        {
+            NSLog(@"%@", error.localizedDescription);
+            return;
+        }
+        self.searchedQuestions = results;
+        [self.tableView reloadData];
+    }];
 }
 
 @end

@@ -7,12 +7,19 @@
 //
 
 #import "WebOAuthViewController.h"
-#import <WebKit/WebKit.h>
+@import WebKit;
 @import Security;
 
 NSString const *kBaseURL = @"https://stackexchange.com/oauth/dialog";
 NSString const *kRedirectURI = @"https://stackexchange.com/oauth/login_success";
 NSString const *kClientID = @"7597";
+NSString const *kAccesstokenID = @"kAccessTokenID";
+
+typedef enum
+{
+    MissingAccessToken = 0,
+    ResponseFromStackExchange
+} stackExchangeError;
 
 @interface WebOAuthViewController () <WKNavigationDelegate>
 
@@ -93,7 +100,7 @@ NSString const *kClientID = @"7597";
     decisionHandler(WKNavigationActionPolicyAllow);
 }
          
--(NSString *)accessToken
++ (NSString *)accessToken
          {
              NSMutableDictionary *query = [NSMutableDictionary dictionary];
              

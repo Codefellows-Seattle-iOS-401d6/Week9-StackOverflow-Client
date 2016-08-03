@@ -45,4 +45,22 @@
     return user;
 }
 
++(NSArray *)usersFromJSON:(NSDictionary *)userData
+{
+    NSMutableArray *users = [[NSMutableArray alloc]init];
+    
+    NSArray *items = userData[@"items"];
+    
+    for (NSDictionary *item in items)
+    {
+        User *user = [[User alloc]init];
+        
+        user.userName = item[@"display_name"];
+        user.profileImageURL = item[@"profile_image"];
+        
+        [users addObject:user];
+    }
+    return users;
+}
+
 @end
