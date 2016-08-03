@@ -34,7 +34,7 @@
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [UIImage imageWithData:data];
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.imageView.image = image;
+            strongSelf.imageView.image = image;
 
         });
     }];
