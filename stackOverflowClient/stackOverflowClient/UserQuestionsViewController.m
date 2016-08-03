@@ -9,9 +9,11 @@
 #import "UserQuestionsViewController.h"
 #import "User.h"
 #import "StackOverflowService.h"
+@import UIKit;
 
-@interface UserQuestionsViewController () <UITableViewDataSource>
+@interface UserQuestionsViewController () <UITableViewDataSource, UISearchBarDelegate>
 
+@property (weak, nonatomic) IBOutlet UISearchBar *usernameSearch;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *searchedUsers;
 
@@ -22,27 +24,29 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableView.dataSource = self;
+    self.usernameSearch.delegate = self;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    NSString *token = [[NSUserDefaults standardUserDefaults]objectForKey:@"token"];
-    
-    if (token) {
-        [StackOverflowService questionsForSearchTerm:@"" completionHandler:^(NSArray *results, NSError *error) {
-            if (error) {
-                NSLog(@"%@", error.localizedDescription);
-                return;
-            }
-            
-            self.searchedUsers = results;
-            [self.tableView reloadData];
-        }];
-    }
-}
+   }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+-(void)performUserSearch {
+    NSString *searchTerm = self.usernameSearch.text;
+    [StackOverflowService usersForSearchTerm:searchTerm completionHandler:^(NSArray *results, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error.localizedDescription);
+            return;
+        }
+        
+        self.searchedUsers = results;
+        [self.tableView reloadData];
+    }];
+
 }
 
 #pragma MARK TableViewDataSource
@@ -58,6 +62,11 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.searchedUsers.count;
+}
+
+#pragma MARK SearchBarDelegate
+- (void)searchBarSearchButtonClicked:(UISearchBar *)usernameSearch {
+    [self performUserSearch];
 }
 
 @end

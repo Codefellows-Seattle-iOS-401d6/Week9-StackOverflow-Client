@@ -12,8 +12,8 @@
 
 +(NSArray *)questionResultsFromJSON:(NSDictionary *)jsonData {
     NSMutableArray *questions = [[NSMutableArray alloc]init];
-    
     NSArray *items = jsonData[@"items"];
+    
     for (NSDictionary *item in items) {
         Question *question = [[Question alloc]init];
         question.title = item[@"title"];
@@ -27,14 +27,20 @@
     return questions;
 }
 
-+(User *)userFromJSON:(NSDictionary *)userData {
-    NSArray *userArray = userData[@"items"];
-    NSDictionary *userInfo = [userArray firstObject];
-    User *user = [[User alloc]init];
-    user.username = userInfo[@"display_name"];
-    user.profileImageURL = userInfo[@"profile_image"];
++(NSArray *)usersFromJSON:(NSDictionary *)userData {
+    NSMutableArray *usersArray = [[NSMutableArray alloc]init];
+    NSArray *items = userData[@"items"];
     
-    return user;
+    for (NSDictionary *item in items) {
+        User *user = [[User alloc]init];
+        
+        user.username = item[@"display_name"];
+        user.profileImageURL = item[@"profile_image"];
+        
+        [usersArray addObject:user];
+    }
+    
+    return usersArray;
 }
 
 @end

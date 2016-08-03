@@ -146,7 +146,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WS8-NY-43t">
-                                <rect key="frame" x="0.0" y="70" width="600" height="530"/>
+                                <rect key="frame" x="0.0" y="120" width="600" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" textLabel="X9n-sS-gJI" style="IBUITableViewCellStyleDefault" id="AAK-vV-NNR">
@@ -168,15 +168,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="search username" translatesAutoresizingMaskIntoConstraints="NO" id="naB-Si-vbj">
+                                <rect key="frame" x="0.0" y="70" width="600" height="44"/>
+                                <color key="barTintColor" red="0.91596394777297974" green="0.97704702615737915" blue="0.9606969952583313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="naB-Si-vbj" firstAttribute="top" secondItem="cnF-bv-h0O" secondAttribute="bottom" constant="50" id="Tl4-6p-InH"/>
+                            <constraint firstItem="naB-Si-vbj" firstAttribute="leading" secondItem="cKL-ez-hrK" secondAttribute="leading" id="U8w-MJ-uhI"/>
+                            <constraint firstAttribute="trailing" secondItem="naB-Si-vbj" secondAttribute="trailing" id="hKm-js-0kF"/>
                             <constraint firstItem="WS8-NY-43t" firstAttribute="leading" secondItem="cKL-ez-hrK" secondAttribute="leading" id="jPT-xq-tbc"/>
                             <constraint firstAttribute="trailing" secondItem="WS8-NY-43t" secondAttribute="trailing" id="ql1-q9-cFS"/>
-                            <constraint firstItem="WS8-NY-43t" firstAttribute="top" secondItem="cnF-bv-h0O" secondAttribute="bottom" constant="50" id="swc-Ol-Gfa"/>
+                            <constraint firstItem="WS8-NY-43t" firstAttribute="top" secondItem="cnF-bv-h0O" secondAttribute="bottom" constant="100" id="swc-Ol-Gfa"/>
                             <constraint firstItem="YHn-aA-rjE" firstAttribute="top" secondItem="WS8-NY-43t" secondAttribute="bottom" id="tQd-Fc-HOZ"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="WS8-NY-43t" id="MpG-Nb-1sc"/>
+                        <outlet property="usernameSearch" destination="naB-Si-vbj" id="C4i-pI-b5n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tcx-wS-IaV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -13,6 +13,6 @@
 @interface JSONParser : NSObject
 
 +(NSArray *)questionResultsFromJSON:(NSDictionary *)jsonData;
-+(User *)userFromJSON:(NSDictionary *)userData;
++(NSArray *)usersFromJSON:(NSDictionary *)userData;
 
 @end
