@@ -8,7 +8,7 @@
 
 #import "BurgerMenuViewController.h"
 #import "QuestionSearchViewController.h"
-#import "UserQuestionsViewController.h"
+#import "UsersViewController.h"
 #import "WebOAuthViewController.h"
 
 CGFloat const kBurgerOpenScreenDivider = 3.0;
@@ -66,16 +66,16 @@ NSString const *NSDerekErrorDomain = @"NSDerekErrorDomain";
     
     QuestionSearchViewController *questionSearchVC = [self.storyboard instantiateViewControllerWithIdentifier:@"QuestionSearchVC"];
     
-    UserQuestionsViewController *userQuestionsVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UserQuestionsVC"];
+    UsersViewController *usersVC = [self.storyboard instantiateViewControllerWithIdentifier:@"UsersVC"];
     
-    self.viewControllers = @[questionSearchVC, userQuestionsVC];
+    self.viewControllers = @[questionSearchVC, usersVC];
     
     UITableViewController *mainMenu = [self.storyboard instantiateViewControllerWithIdentifier:@"MainMenu"];
     
     mainMenu.tableView.delegate = self;
     
     
-    [self setupChildController:userQuestionsVC];
+    [self setupChildController:usersVC];
     [self setupChildController:mainMenu];
     [self setupChildController:questionSearchVC];
     
