@@ -9,14 +9,17 @@
 #import "QuestionSearchViewController.h"
 #import "StackOverFlowService.h"
 #import "WebOAuthViewController.h"
+#import "Question.h"
 
-@interface QuestionSearchViewController ()
+@interface QuestionSearchViewController ()<UITableViewDataSource>
 
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(strong, nonatomic)NSArray *searchedQuestions;
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 - (IBAction)searchButtonSelected:(UIButton *)sender;
+- (IBAction)searchEntered:(UITextField *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
 
 @end
 
@@ -24,9 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [StackOverFlowService questionsForSearchTerm:@"iOS" completionHandler:^(NSArray *results, NSError *error) {
-        //
-    }];
+    self.tableView.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,22 +35,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)viewDidAppear:(BOOL)animated {
-//    [super viewDidAppear:YES];
-//    NSString *token = [WebOAuthViewController accessToken];
-//    
-////   <#^(NSArray *results, NSError *error)completion#> if (token) {
-////        [StackOverFlowService questionsForSearchTerm:<#(NSString *)#> completionHandler:]
-////    }
-//}
-
 
 - (IBAction)searchButtonSelected:(UIButton *)sender {
     NSString *searchText = self.searchTextField.text;
     self.searchTextField.text = @"";
     NSString *token = [WebOAuthViewController accessToken];
     if (token) {
-        [StackOverFlowService questionsForSearchTerm:searchText completionHandler:^(NSArray *results, NSError *error) {
+        [StackOverFlowService questionsForSearchTerm:searchText searchCategory:@"Questions" completionHandler:^(NSArray *results, NSError *error) {
             if (error) {
                 NSLog(@"%@", error.localizedDescription);
                 return;
@@ -58,5 +50,23 @@
             [self.tableView reloadData];
         }];
     }
+}
+
+- (IBAction)searchEntered:(UITextField *)sender {
+    [self searchButtonSelected:self.searchButton];
+}
+
+
+#pragma mark - Table Delegate
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"questionCell" forIndexPath:indexPath];
+    Question *currentQuestion = self.searchedQuestions[indexPath.row];
+    cell.textLabel.text = currentQuestion.title;
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.searchedQuestions.count;
 }
 @end

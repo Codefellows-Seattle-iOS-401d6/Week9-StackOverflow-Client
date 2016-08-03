@@ -7,11 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "User.h"
 
 typedef void(^questionFetchCompletion)(NSArray *results, NSError *error);
 
 @interface StackOverFlowService : NSObject
 
-+ (void)questionsForSearchTerm:(NSString *)searcjTerm completionHandler:(questionFetchCompletion)completion;
++ (void)questionsForSearchTerm:(NSString *)searchTerm searchCategory:(NSString *)searchCategory completionHandler:(questionFetchCompletion)completion;
+
+
 
 @end

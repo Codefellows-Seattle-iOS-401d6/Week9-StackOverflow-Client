@@ -29,13 +29,6 @@ CGFloat const kBurgerButtonHeight = 30.0;
 
 @implementation BurgerMenuViewController
 
-- (void)errorCodeExample {
-    NSString *domain = @"KeyChian";
-    NSInteger code = 666;
-    NSDictionary *userInfo = @{@"Description" : @"Keychain + Objective-c = A twisted form of hell"};
-                               
-    NSError *error = [NSError errorWithDomain:domain code:code userInfo:userInfo];
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -62,7 +55,6 @@ CGFloat const kBurgerButtonHeight = 30.0;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
     self.token = [WebOAuthViewController accessToken];
-    NSLog(@"Log: %@", self.token);
     if(!self.token) {
         WebOAuthViewController *webVC = [[WebOAuthViewController alloc]init];
         [self presentViewController:webVC animated:YES completion:nil];
