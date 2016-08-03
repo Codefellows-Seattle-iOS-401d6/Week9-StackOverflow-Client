@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE9C80DF1D5104AF00B51DCA /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9C80DE1D5104AF00B51DCA /* AFNetworking.framework */; };
+		EE9C80E11D51052C00B51DCA /* AFNetworking.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE9C80DE1D5104AF00B51DCA /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE9C80E41D510B4300B51DCA /* StackOverflowService.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9C80E31D510B4300B51DCA /* StackOverflowService.m */; };
+		EE9C80E81D511AA100B51DCA /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9C80E71D511AA100B51DCA /* Question.m */; };
+		EE9C80EB1D511AE000B51DCA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9C80EA1D511AE000B51DCA /* User.m */; };
+		EE9C80EF1D511EB600B51DCA /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9C80EE1D511EB600B51DCA /* JSONParser.m */; };
 		EEF65B351D4FAD3000E25CD6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF65B341D4FAD3000E25CD6 /* main.m */; };
 		EEF65B381D4FAD3000E25CD6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF65B371D4FAD3000E25CD6 /* AppDelegate.m */; };
-		EEF65B3B1D4FAD3000E25CD6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF65B3A1D4FAD3000E25CD6 /* ViewController.m */; };
 		EEF65B3E1D4FAD3000E25CD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEF65B3C1D4FAD3000E25CD6 /* Main.storyboard */; };
 		EEF65B401D4FAD3000E25CD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEF65B3F1D4FAD3000E25CD6 /* Assets.xcassets */; };
 		EEF65B431D4FAD3000E25CD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEF65B411D4FAD3000E25CD6 /* LaunchScreen.storyboard */; };
@@ -19,13 +24,33 @@
 		EEF65B591D4FD34F00E25CD6 /* WebOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EEF65B581D4FD34F00E25CD6 /* WebOAuthViewController.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		EE9C80E01D51051900B51DCA /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EE9C80E11D51052C00B51DCA /* AFNetworking.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		EE9C80DE1D5104AF00B51DCA /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
+		EE9C80E21D510B4300B51DCA /* StackOverflowService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StackOverflowService.h; sourceTree = "<group>"; };
+		EE9C80E31D510B4300B51DCA /* StackOverflowService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StackOverflowService.m; sourceTree = "<group>"; };
+		EE9C80E61D511AA100B51DCA /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		EE9C80E71D511AA100B51DCA /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		EE9C80E91D511AE000B51DCA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		EE9C80EA1D511AE000B51DCA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		EE9C80ED1D511EB600B51DCA /* JSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONParser.h; sourceTree = "<group>"; };
+		EE9C80EE1D511EB600B51DCA /* JSONParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONParser.m; sourceTree = "<group>"; };
 		EEF65B301D4FAD3000E25CD6 /* StackOverFlowClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StackOverFlowClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEF65B341D4FAD3000E25CD6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EEF65B361D4FAD3000E25CD6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EEF65B371D4FAD3000E25CD6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EEF65B391D4FAD3000E25CD6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		EEF65B3A1D4FAD3000E25CD6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		EEF65B3D1D4FAD3000E25CD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EEF65B3F1D4FAD3000E25CD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEF65B421D4FAD3000E25CD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -46,15 +71,39 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9C80DF1D5104AF00B51DCA /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE9C80E51D510B7A00B51DCA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEF65B3F1D4FAD3000E25CD6 /* Assets.xcassets */,
+				EEF65B441D4FAD3000E25CD6 /* Info.plist */,
+				EEF65B3C1D4FAD3000E25CD6 /* Main.storyboard */,
+				EEF65B411D4FAD3000E25CD6 /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		EE9C80EC1D511AF200B51DCA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EE9C80E61D511AA100B51DCA /* Question.h */,
+				EE9C80E71D511AA100B51DCA /* Question.m */,
+				EE9C80E91D511AE000B51DCA /* User.h */,
+				EE9C80EA1D511AE000B51DCA /* User.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		EEF65B271D4FAD3000E25CD6 = {
 			isa = PBXGroup;
 			children = (
+				EE9C80DE1D5104AF00B51DCA /* AFNetworking.framework */,
 				EEF65B5A1D4FF96700E25CD6 /* Security.framework */,
 				EEF65B321D4FAD3000E25CD6 /* StackOverFlowClient */,
 				EEF65B311D4FAD3000E25CD6 /* Products */,
@@ -74,10 +123,8 @@
 			children = (
 				EEF65B5F1D4FFACA00E25CD6 /* App Global */,
 				EEF65B561D4FBA1C00E25CD6 /* Controller */,
-				EEF65B3C1D4FAD3000E25CD6 /* Main.storyboard */,
-				EEF65B3F1D4FAD3000E25CD6 /* Assets.xcassets */,
-				EEF65B411D4FAD3000E25CD6 /* LaunchScreen.storyboard */,
-				EEF65B441D4FAD3000E25CD6 /* Info.plist */,
+				EE9C80EC1D511AF200B51DCA /* Model */,
+				EE9C80E51D510B7A00B51DCA /* View */,
 				EEF65B331D4FAD3000E25CD6 /* Supporting Files */,
 			);
 			path = StackOverFlowClient;
@@ -100,8 +147,6 @@
 				EEF65B511D4FBA0800E25CD6 /* QuestionSearchViewController.m */,
 				EEF65B531D4FBA1600E25CD6 /* UserQuestionsViewController.h */,
 				EEF65B541D4FBA1600E25CD6 /* UserQuestionsViewController.m */,
-				EEF65B391D4FAD3000E25CD6 /* ViewController.h */,
-				EEF65B3A1D4FAD3000E25CD6 /* ViewController.m */,
 				EEF65B571D4FD34F00E25CD6 /* WebOAuthViewController.h */,
 				EEF65B581D4FD34F00E25CD6 /* WebOAuthViewController.m */,
 			);
@@ -113,6 +158,10 @@
 			children = (
 				EEF65B361D4FAD3000E25CD6 /* AppDelegate.h */,
 				EEF65B371D4FAD3000E25CD6 /* AppDelegate.m */,
+				EE9C80ED1D511EB600B51DCA /* JSONParser.h */,
+				EE9C80EE1D511EB600B51DCA /* JSONParser.m */,
+				EE9C80E21D510B4300B51DCA /* StackOverflowService.h */,
+				EE9C80E31D510B4300B51DCA /* StackOverflowService.m */,
 			);
 			name = "App Global";
 			sourceTree = "<group>";
@@ -127,6 +176,7 @@
 				EEF65B2C1D4FAD3000E25CD6 /* Sources */,
 				EEF65B2D1D4FAD3000E25CD6 /* Frameworks */,
 				EEF65B2E1D4FAD3000E25CD6 /* Resources */,
+				EE9C80E01D51051900B51DCA /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -188,11 +238,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEF65B591D4FD34F00E25CD6 /* WebOAuthViewController.m in Sources */,
-				EEF65B3B1D4FAD3000E25CD6 /* ViewController.m in Sources */,
 				EEF65B551D4FBA1600E25CD6 /* UserQuestionsViewController.m in Sources */,
+				EE9C80EB1D511AE000B51DCA /* User.m in Sources */,
 				EEF65B4F1D4FAD9100E25CD6 /* BurgerMenuViewController.m in Sources */,
+				EE9C80E41D510B4300B51DCA /* StackOverflowService.m in Sources */,
 				EEF65B381D4FAD3000E25CD6 /* AppDelegate.m in Sources */,
+				EE9C80E81D511AA100B51DCA /* Question.m in Sources */,
 				EEF65B521D4FBA0800E25CD6 /* QuestionSearchViewController.m in Sources */,
+				EE9C80EF1D511EB600B51DCA /* JSONParser.m in Sources */,
 				EEF65B351D4FAD3000E25CD6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,6 +358,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = StackOverFlowClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hannahgaskins.StackOverFlowClient;
@@ -316,6 +373,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = StackOverFlowClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hannahgaskins.StackOverFlowClient;
@@ -342,6 +403,7 @@
 				EEF65B491D4FAD3000E25CD6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
